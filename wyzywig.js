@@ -15,6 +15,44 @@ function initWyzywigEditor(textareaId) {
     const toolbar = document.createElement('div');
     toolbar.className = 'toolbar';
 
+    // Font Name
+    const fontName = document.createElement('select');
+    const fonts = ['Arial', 'Courier New', 'Georgia', 'Times New Roman', 'Verdana'];
+    fonts.forEach(font => {
+        const option = document.createElement('option');
+        option.value = font;
+        option.textContent = font;
+        fontName.appendChild(option);
+    });
+    toolbar.appendChild(fontName);
+
+    // Font Size
+    const fontSize = document.createElement('select');
+    for (let i = 1; i <= 7; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        fontSize.appendChild(option);
+    }
+    toolbar.appendChild(fontSize);
+
+    // Font Color
+    const fontColor = document.createElement('input');
+    fontColor.type = 'color';
+    toolbar.appendChild(fontColor);
+
+    fontName.addEventListener('change', () => {
+        document.execCommand('fontName', false, fontName.value);
+    });
+
+    fontSize.addEventListener('change', () => {
+        document.execCommand('fontSize', false, fontSize.value);
+    });
+
+    fontColor.addEventListener('input', () => {
+        document.execCommand('foreColor', false, fontColor.value);
+    });
+
     const buttons = [
         { command: 'undo', icon: 'Undo' },
         { command: 'redo', icon: 'Redo' },

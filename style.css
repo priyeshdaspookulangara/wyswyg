@@ -20,6 +20,23 @@ body {
     border-bottom: none;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.toolbar button, .toolbar select, .toolbar input {
+    margin: 2px;
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.toolbar input[type="color"] {
+    padding: 2px;
+    width: 25px;
+    height: 25px;
 }
 
 .toolbar button {
