@@ -71,6 +71,17 @@ function initWyzywigEditor(textareaId) {
         textarea.value = editor.innerHTML;
     });
 
+    editor.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            if (event.ctrlKey) {
+                document.execCommand('insertLineBreak');
+            } else {
+                document.execCommand('insertParagraph');
+            }
+        }
+    });
+
     const modal = document.getElementById('imageModal');
     const closeButton = document.querySelector('.close-button');
     const uploadButton = document.getElementById('uploadButton');
