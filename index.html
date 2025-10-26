@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="editor-container">
-        <textarea name="editor" id="editor" cols="30" rows="10"></textarea>
-    </div>
+    <form action="https://abc.com" method="POST">
+        <div class="editor-container">
+            <textarea name="editor" id="editor" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit">Submit to abc.com</button>
+        <button type="button" id="showContentButton">Display Content</button>
+    </form>
 
     <div id="imageModal" class="modal">
         <div class="modal-content">
@@ -25,6 +29,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             initWyzywigEditor('editor');
+
+            document.getElementById('showContentButton').addEventListener('click', () => {
+                const editorContent = document.getElementById('editor').value;
+                alert(editorContent);
+            });
         });
     </script>
 </body>
