@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WYSIWYG Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="editor-container">
+        <textarea name="editor" id="editor" cols="30" rows="10"></textarea>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Upload Image</h2>
+            <input type="file" id="imageInput" accept="image/*">
+            <button id="uploadButton">Upload</button>
+            <p id="uploadMessage"></p>
+        </div>
+    </div>
+
+    <script src="wyzywig.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initWyzywigEditor('editor');
+        });
+    </script>
+</body>
+</html>
